@@ -1,0 +1,42 @@
+{
+  "id": "org.freedesktop.Sdk.Extension.sbcl",
+  "branch": "22.08",
+  "runtime": "org.freedesktop.Sdk",
+  "build-extension": true,
+  "sdk": "org.freedesktop.Sdk",
+  "runtime-version": "22.08",
+  "separate-locales": false,
+  "appstream-compose": false,
+  "modules": [
+    {
+      "name": "sbcl",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "http://prdownloads.sourceforge.net/sbcl/sbcl-2.4.2-x86-64-linux-binary.tar.bz2",
+          "sha256": "720ad87604359920d268630f2d87b6fca1ba760f961b8fe4a1337f40628cbfdd"
+        }
+      ],
+      "build-commands": [
+        "./install.sh --prefix=/usr/lib/sdk/sbcl"
+      ]
+    },
+    {
+      "name": "scripts",
+      "sources": [
+        {
+          "type": "script",
+          "commands": [
+            "export PATH=$PATH:/usr/lib/sdk/sbcl/bin"
+          ],
+          "dest-filename": "enable.sh"
+        }
+      ],
+      "buildsystem": "simple",
+      "build-commands": [
+        "cp enable.sh /usr/lib/sdk/sbcl"
+      ]
+    }
+  ]
+}

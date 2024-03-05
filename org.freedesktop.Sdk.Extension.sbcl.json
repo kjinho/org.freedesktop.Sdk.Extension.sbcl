@@ -7,6 +7,9 @@
   "runtime-version": "22.08",
   "separate-locales": false,
   "appstream-compose": false,
+  "build-options": {
+    "prepend-path": "/usr/lib/sdk/sbcl/bin"
+  },
   "modules": [
     {
       "name": "sbcl",
@@ -20,6 +23,26 @@
       ],
       "build-commands": [
         "./install.sh --prefix=/usr/lib/sdk/sbcl"
+      ]
+    },
+    {
+      "name": "qlot",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/fukamachi/qlot/releases/download/1.5.1/qlot-1.5.1.tar.gz",
+          "sha256": "152f82fd822c2fcccfe587df2167c3d4413ad934d0068b4d810c10994b8178c3"
+        },
+        {
+          "type": "patch",
+          "path": "qlot.patch"
+        }
+      ],
+      "build-commands": [
+        "cp -r . /usr/lib/sdk/sbcl/lib/qlot",
+        "QLOT_BASE=/usr/lib/sdk/sbcl /usr/lib/sdk/sbcl/lib/qlot/scripts/setup.sh",
+        "QLOT_BASE=/usr/lib/sdk/sbcl /usr/lib/sdk/sbcl/lib/qlot/scripts/install.sh"
       ]
     },
     {

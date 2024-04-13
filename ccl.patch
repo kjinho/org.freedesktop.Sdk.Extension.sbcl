@@ -1,0 +1,24 @@
+diff -u -r a/scripts/ccl b/scripts/ccl
+--- a/scripts/ccl	2024-04-12 19:42:08.577977679 -0400
++++ b/scripts/ccl	2024-04-12 19:42:43.561766314 -0400
+@@ -9,7 +9,7 @@
+ # environment takes precedence over definition made below.
+ 
+ if [ -z "$CCL_DEFAULT_DIRECTORY" ]; then
+-  CCL_DEFAULT_DIRECTORY=/usr/local/src/ccl
++  CCL_DEFAULT_DIRECTORY=/usr/lib/sdk/sbcl/lib/ccl
+ fi
+ 
+ # If you don't want to guess the name of the lisp kernel on
+diff -u -r a/scripts/ccl64 b/scripts/ccl64
+--- a/scripts/ccl64	2024-04-12 19:42:08.577977679 -0400
++++ b/scripts/ccl64	2024-04-12 19:42:57.636681276 -0400
+@@ -9,7 +9,7 @@
+ # environment takes precedence over definition made below.
+ 
+ if [ -z "$CCL_DEFAULT_DIRECTORY" ]; then
+-  CCL_DEFAULT_DIRECTORY=/usr/local/src/ccl
++  CCL_DEFAULT_DIRECTORY=/usr/lib/sdk/sbcl/lib/ccl
+ fi
+ 
+ # If you don't want to guess the name of the OpenMCL kernel on

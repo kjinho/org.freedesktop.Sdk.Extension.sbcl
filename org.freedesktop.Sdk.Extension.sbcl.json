@@ -1,13 +1,14 @@
 {
   "id": "org.freedesktop.Sdk.Extension.sbcl",
-  "branch": "22.08",
+  "branch": "23.08",
   "runtime": "org.freedesktop.Sdk",
   "build-extension": true,
   "sdk": "org.freedesktop.Sdk",
-  "runtime-version": "22.08",
+  "runtime-version": "23.08",
   "separate-locales": false,
   "appstream-compose": false,
   "build-options": {
+    "prefix": "/usr/lib/sdk/sbcl",
     "prepend-path": "/usr/lib/sdk/sbcl/bin"
   },
   "modules": [
@@ -17,12 +18,31 @@
       "sources": [
         {
           "type": "archive",
-          "url": "http://prdownloads.sourceforge.net/sbcl/sbcl-2.4.2-x86-64-linux-binary.tar.bz2",
-          "sha256": "720ad87604359920d268630f2d87b6fca1ba760f961b8fe4a1337f40628cbfdd"
+          "url": "http://prdownloads.sourceforge.net/sbcl/sbcl-2.4.3-x86-64-linux-binary.tar.bz2",
+          "sha256": "4ffbb6949108878be7a44a5e6d7a4e92b8aba581f7e39f74a3d9352a1d4f4646"
         }
       ],
       "build-commands": [
-        "./install.sh --prefix=/usr/lib/sdk/sbcl"
+        "INSTALL_ROOT=/usr/lib/sdk/sbcl sh install.sh"
+      ]
+    },
+    {
+      "name": "ccl",
+      "buildsystem": "simple",
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/Clozure/ccl/releases/download/v1.12.2/ccl-1.12.2-linuxx86.tar.gz",
+          "sha256": "a94fda3daf26ce8c3d08e0db0e6e9907995acc10e0f8aad2125790b93eaa1556"
+        },
+        {
+          "type": "patch",
+          "path": "ccl.patch"
+        }
+      ],
+      "build-commands": [
+        "mkdir /usr/lib/sdk/sbcl/lib/ccl",
+        "cp -r * /usr/lib/sdk/sbcl/lib/ccl"
       ]
     },
     {
@@ -51,7 +71,7 @@
         {
           "type": "script",
           "commands": [
-            "export PATH=$PATH:/usr/lib/sdk/sbcl/bin"
+            "export PATH=$PATH:/usr/lib/sdk/sbcl/bin:/usr/lib/sdk/sbcl/lib/ccl/scripts:/usr/lib/sdk/sbcl/lib/qlot/bin"
           ],
           "dest-filename": "enable.sh"
         }

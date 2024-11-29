@@ -1,1 +1,10 @@
-.flatpak-builder/
+/.flatpak-builder/
+/ccl-*.tar.gz
+/a/
+/b/
+/build-dir/
+/qlot/
+/ccl/
+/qlot-*.tar.gz 
+/sbcl-*.bz2
+/quicklisp.txt

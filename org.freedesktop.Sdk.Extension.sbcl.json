@@ -21,8 +21,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "http://prdownloads.sourceforge.net/sbcl/sbcl-2.4.7-x86-64-linux-binary.tar.bz2",
-          "sha256": "1f900cf99f2617f613fe0a6d3490d3e00aa5e9740c88a8c88022a0ac766b0457"
+          "url": "http://prdownloads.sourceforge.net/sbcl/sbcl-2.5.0-x86-64-linux-binary.tar.bz2",
+          "sha256": "ac430fe7cf6b4a8d4dc8e0a2371265b6c6605dba06874a9c93521222292769a2"
         }
       ],
       "build-commands": [
@@ -35,8 +35,8 @@
       "sources": [
         {
           "type": "archive",
-          "url": "https://github.com/Clozure/ccl/releases/download/v1.12.2/ccl-1.12.2-linuxx86.tar.gz",
-          "sha256": "a94fda3daf26ce8c3d08e0db0e6e9907995acc10e0f8aad2125790b93eaa1556"
+          "url": "https://github.com/Clozure/ccl/releases/download/v1.13/ccl-1.13-linuxx86.tar.gz",
+          "sha256": "70069ee74c6f0685df83eb6224ce22f3e7919e17b233476c784e440d60e26bf1"
         },
         {
           "type": "patch",
@@ -55,7 +55,7 @@
         {
           "type": "git",
           "url": "https://github.com/fukamachi/qlot",
-          "tag": "1.5.8"
+          "tag": "1.6.0"
         },
         {
           "type": "patch",
